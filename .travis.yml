@@ -1,4 +1,6 @@
 language: python
+services:
+  - postgresql
 python:
   - "2.7"
   - "3.3"
@@ -6,4 +8,6 @@ python:
   - "3.5"
 install:
   - pip install -r requirements.txt
+before_script:
+  - psql -c 'create database crft;' -U postgres
 script: django-admin.py migrate
