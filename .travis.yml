@@ -6,10 +6,8 @@ python:
   - "3.3"
   - "3.4"
   - "3.5"
-env:
-  - DJANGO_SETTINGS_MODULE=crft.settings
 install:
   - pip install -r requirements.txt
 before_script:
   - psql -c 'create database crft;' -U postgres
-script: django-admin.py migrate
+script: django-admin.py migrate --settings=crft.settings --pythonpath=.
