@@ -24,7 +24,12 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='planet',
-            name='star',
+            name='parent_star',
             field=models.ForeignKey(to='crft.Star'),
+        ),
+        migrations.RenameField(
+            model_name='planet',
+            old_name='parent_star',
+            new_name='star',
         ),
     ]
